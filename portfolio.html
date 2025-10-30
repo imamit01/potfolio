@@ -1397,6 +1397,40 @@
 
     </style>
 </head>
+    <script>
+(function () {
+  /**
+   * Replace any trailing "portfolio.html" in the pathname with "/"
+   * and preserve the current hash (if any). Uses replaceState so
+   * the page is not reloaded and back/forward history remains sensible.
+   */
+  function cleanPortfolioUrl() {
+    try {
+      var loc = window.location;
+      // Only run if pathname contains 'portfolio.html'
+      if (/\/?portfolio\.html$/i.test(loc.pathname)) {
+        var hash = loc.hash || '';
+        // Remove trailing "portfolio.html" (with optional leading slash)
+        var newPath = loc.pathname.replace(/\/?portfolio\.html$/i, '/');
+        if (!newPath) newPath = '/';
+        // Build new URL (preserve origin and the hash)
+        var newUrl = loc.origin + newPath + hash;
+        // Replace current history entry without reloading
+        window.history.replaceState(null, document.title, newUrl);
+      }
+    } catch (err) {
+      // Fail silently (but log for debugging)
+      console && console.error && console.error('cleanPortfolioUrl error:', err);
+    }
+  }
+
+  // Run after load to avoid interfering with the browser's default hash scrolling.
+  window.addEventListener('load', function () {
+    // Small timeout to let browser complete hash jump if needed
+    setTimeout(cleanPortfolioUrl, 50);
+  }, { once: true });
+})();
+</script>
 <body>
 
     <!-- Skip to content link for accessibility -->
@@ -2412,3 +2446,4 @@
     </script>
 </body>
 </html>
+
