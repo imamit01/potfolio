@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self';">
+    <title>About | Amit Kumar - Frontend Developer & ML Researcher</title>
+    <meta name="description"
+        content="Learn about Amit Kumar's journey, education, skills, and experience in frontend development and machine learning.">
+    <link rel="canonical" href="https://immait.tech/about.html">
+    <meta property="og:title" content="About Amit Kumar">
+    <meta property="og:url" content="https://immait.tech/about.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="amit-photo.png">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <!-- Shared Components -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <canvas id="starfield"></canvas>
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="logo-text">AK</span><span class="logo-dot"></span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title"><span class="glitch" data-text="About Me">About Me</span></h1>
+            <p class="page-subtitle">My journey, education, and expertise</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <img src="amit-photo.png" alt="Amit Kumar" class="profile-large">
+                </div>
+                <div class="about-text reveal">
+                    <h2>Hi, I'm <span class="highlight">Amit Kumar</span></h2>
+                    <p>I'm a passionate Frontend Developer and Machine Learning Researcher with a Master's degree in
+                        Computer Engineering from Chandigarh University.</p>
+                    <p>My journey in tech started with a Bachelor's in Computer Applications from Shimla University.
+                        I've since specialized in creating modern, performant web interfaces and applying machine
+                        learning to healthcare challenges.</p>
+                    <p>I've published 3 Scopus-indexed research papers on heart disease prediction using hybrid ML
+                        approaches. When I'm not coding, I enjoy exploring new technologies and contributing to
+                        open-source projects.</p>
+                    <div class="about-stats">
+                        <div class="stat-item"><span class="stat-number">3+</span><span class="stat-label">Years
+                                Experience</span></div>
+                        <div class="stat-item"><span class="stat-number">3</span><span
+                                class="stat-label">Publications</span></div>
+                        <div class="stat-item"><span class="stat-number">10+</span><span
+                                class="stat-label">Projects</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section" id="timeline">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">My Journey</span>
+                <h2 class="section-title">Education & <span class="highlight">Experience</span></h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2022 - 2024</span>
+                        <h3>M.Tech in Computer Engineering</h3>
+                        <p>Chandigarh University</p>
+                        <span class="timeline-tag">CGPA: 8.2</span>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2023</span>
+                        <h3>ML Research - Heart Disease Prediction</h3>
+                        <p>Published 3 Scopus-indexed papers on hybrid ML approaches</p>
+                        <span class="timeline-tag">Research</span>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2019 - 2022</span>
+                        <h3>BCA - Computer Applications</h3>
+                        <p>Shimla University</p>
+                        <span class="timeline-tag">First Division</span>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2021 - Present</span>
+                        <h3>Frontend Developer</h3>
+                        <p>Building modern web applications using HTML, CSS, JavaScript</p>
+                        <span class="timeline-tag">Professional</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Expertise</span>
+                <h2 class="section-title">Skills & <span class="highlight">Technologies</span></h2>
+            </div>
+            <div class="skills-grid" id="skills-grid"></div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section class="resume-section" id="resume">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Download</span>
+                <h2 class="section-title">My <span class="highlight">Resume</span></h2>
+            </div>
+            <div class="resume-card reveal">
+                <div class="resume-preview">
+                    <div class="resume-header-preview">
+                        <img src="amit-photo.png" alt="Amit" class="resume-photo">
+                        <div>
+                            <h3>Amit Kumar</h3>
+                            <p>Frontend Developer & ML Researcher</p>
+                        </div>
+                    </div>
+                    <div class="resume-stats">
+                        <span>📧 byemail007@gmail.com</span>
+                        <span>📍 Chandigarh, India</span>
+                        <span>💼 3+ Years Experience</span>
+                    </div>
+                </div>
+                <div class="resume-actions">
+                    <button class="btn btn-primary" onclick="downloadResume()">📄 Download PDF</button>
+                    <button class="btn btn-outline" onclick="openResumeBuilder()">✏️ Customize</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Builder Modal -->
+    <div class="resume-modal" id="resume-modal">
+        <div class="resume-modal-content">
+            <button class="modal-close" onclick="closeResumeBuilder()">×</button>
+            <h2>📄 Resume Builder</h2>
+            <div class="resume-builder">
+                <div class="builder-section">
+                    <h4>Personal Info</h4>
+                    <input type="text" class="form-input" id="resume-name" value="Amit Kumar" placeholder="Full Name">
+                    <input type="text" class="form-input" id="resume-title" value="Frontend Developer & ML Researcher"
+                        placeholder="Title">
+                    <input type="email" class="form-input" id="resume-email" value="byemail007@gmail.com"
+                        placeholder="Email">
+                    <input type="text" class="form-input" id="resume-phone" placeholder="Phone">
+                    <input type="text" class="form-input" id="resume-location" value="Chandigarh, India"
+                        placeholder="Location">
+                </div>
+                <div class="builder-section">
+                    <h4>Summary</h4>
+                    <textarea class="form-input" id="resume-summary" rows="3"
+                        placeholder="Professional summary...">Passionate Frontend Developer with 3+ years of experience. Specialized in creating modern web applications and ML research with 3 Scopus-indexed publications.</textarea>
+                </div>
+                <div class="builder-section">
+                    <h4>Skills (comma separated)</h4>
+                    <input type="text" class="form-input" id="resume-skills"
+                        value="HTML, CSS, JavaScript, React, Python, Machine Learning, TensorFlow, Git">
+                </div>
+                <div class="builder-actions">
+                    <button class="btn btn-primary" onclick="generateResume()">📄 Generate & Download</button>
+                    <button class="btn btn-outline" onclick="printResume()">🖨️ Print</button>
+                </div>
+            </div>
+            <!-- Generated Resume Preview -->
+            <div class="resume-output" id="resume-output"></div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2024 <span class="highlight">Amit Kumar</span>. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" title="Back to Top">↑</button>
+
+    <!-- AI Chatbot Widget -->
+    <div class="ai-chatbot" id="ai-chatbot">
+        <button class="chatbot-trigger" id="chatbot-trigger" onclick="toggleChatbot()">
+            <span class="chatbot-icon">🤖</span>
+            <span class="chatbot-label">Ask AI</span>
+        </button>
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">🤖</div>
+                <div class="chatbot-info">
+                    <h4>Amit's AI Assistant</h4>
+                    <span class="chatbot-status">● Online</span>
+                </div>
+                <button class="chatbot-close" onclick="toggleChatbot()">×</button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="chat-message bot">
+                    <p>👋 Hi! I'm Amit's AI Assistant. Ask me anything about:</p>
+                    <div class="chat-suggestions">
+                        <button onclick="askBot('Tell me about Amit')">About Amit</button>
+                        <button onclick="askBot('What are his skills?')">Skills</button>
+                        <button onclick="askBot('Show me projects')">Projects</button>
+                        <button onclick="askBot('How to contact?')">Contact</button>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Ask me anything..."
+                    onkeypress="if(event.key==='Enter')sendToBot()">
+                <button onclick="sendToBot()">➤</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

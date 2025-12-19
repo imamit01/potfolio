@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self';">
+    <title>Blog | Amit Kumar - Tech Insights & Tutorials</title>
+    <meta name="description"
+        content="Read Amit Kumar's blog posts about frontend development, machine learning, and tech insights.">
+    <link rel="canonical" href="https://immait.tech/blog.html">
+    <meta property="og:title" content="Blog - Amit Kumar">
+    <meta property="og:url" content="https://immait.tech/blog.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="amit-photo.png">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <canvas id="starfield"></canvas>
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="logo-text">AK</span><span class="logo-dot"></span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title"><span class="glitch" data-text="My Blog">My Blog</span></h1>
+            <p class="page-subtitle">Tech insights, tutorials, and updates</p>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <!-- Blog Controls -->
+            <div class="blog-controls reveal">
+                <div class="blog-search">
+                    <input type="text" id="blog-search" class="form-input" placeholder="🔍 Search posts...">
+                </div>
+                <div class="blog-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="ml">🤖 ML</button>
+                    <button class="filter-btn" data-filter="frontend">💻 Frontend</button>
+                    <button class="filter-btn" data-filter="personal">📝 Personal</button>
+                </div>
+                <div class="blog-sort">
+                    <select id="blog-sort" class="form-input">
+                        <option value="date">📅 Latest</option>
+                        <option value="likes">❤️ Most Liked</option>
+                        <option value="comments">💬 Most Discussed</option>
+                    </select>
+                </div>
+                <button class="btn btn-outline btn-sm" id="admin-btn" title="Admin Mode">⚙️ Admin</button>
+            </div>
+
+            <div class="blog-grid" id="blog-grid"></div>
+        </div>
+    </section>
+
+    <!-- Blog Modal -->
+    <div class="blog-modal" id="blog-modal">
+        <div class="blog-modal-content">
+            <button class="blog-modal-close" id="blog-modal-close">×</button>
+            <div class="blog-modal-header">
+                <img src="" alt="" class="blog-modal-image" id="blog-modal-image">
+                <div class="blog-modal-gallery" id="blog-modal-gallery"></div>
+            </div>
+            <div class="blog-modal-body">
+                <div class="blog-modal-meta">
+                    <span class="blog-modal-date" id="blog-modal-date"></span>
+                    <span class="blog-modal-reading" id="blog-modal-reading"></span>
+                    <span class="blog-modal-tag" id="blog-modal-tag"></span>
+                </div>
+                <h2 class="blog-modal-title" id="blog-modal-title"></h2>
+                <div class="blog-modal-text" id="blog-modal-text"></div>
+
+                <div class="blog-share">
+                    <span>Share:</span>
+                    <button class="share-btn" id="share-whatsapp" title="WhatsApp">📱</button>
+                    <button class="share-btn" id="share-twitter" title="Twitter">🐦</button>
+                    <button class="share-btn" id="share-linkedin" title="LinkedIn">💼</button>
+                    <button class="share-btn" id="share-copy" title="Copy Link">📋</button>
+                </div>
+
+                <div class="blog-modal-actions">
+                    <button class="blog-action-btn" id="blog-like-btn">
+                        <span class="action-icon">❤️</span>
+                        <span class="action-count" id="blog-like-count">0</span>
+                    </button>
+                    <button class="blog-action-btn" id="blog-star-btn">
+                        <span class="action-icon">⭐</span>
+                        <span class="action-count" id="blog-star-count">0</span>
+                    </button>
+                </div>
+                <div class="blog-comments-section">
+                    <h4>Comments</h4>
+                    <div class="blog-comments" id="blog-comments"></div>
+                    <form class="blog-comment-form" id="blog-comment-form">
+                        <input type="text" class="form-input" id="comment-name" placeholder="Your Name" required>
+                        <textarea class="form-input" id="comment-text" placeholder="Write a comment..." rows="2"
+                            required></textarea>
+                        <button type="submit" class="btn btn-primary btn-sm">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Modal -->
+    <div class="admin-modal" id="admin-modal">
+        <div class="admin-modal-content">
+            <button class="blog-modal-close" id="admin-modal-close">×</button>
+            <h2 class="admin-title">📝 Blog Admin</h2>
+            <div class="admin-tabs">
+                <button class="admin-tab active" data-tab="new">New Post</button>
+                <button class="admin-tab" data-tab="drafts">Drafts</button>
+                <button class="admin-tab" data-tab="manage">Manage</button>
+            </div>
+            <div class="admin-body" id="admin-body"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2024 <span class="highlight">Amit Kumar</span>. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" title="Back to Top">↑</button>
+    <a href="https://wa.me/918544860872?text=Hi%20Amit!" target="_blank" class="whatsapp-widget"><span
+            class="whatsapp-icon">💬</span></a>
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

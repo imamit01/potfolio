@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self';">
+    <title>Services | Amit Kumar - Frontend Developer & ML Researcher</title>
+    <meta name="description"
+        content="Hire Amit Kumar for frontend development, ML solutions, data analysis, and UI/UX design services.">
+    <link rel="canonical" href="https://immait.tech/services.html">
+    <meta property="og:title" content="Services - Amit Kumar">
+    <meta property="og:url" content="https://immait.tech/services.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="amit-photo.png">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <canvas id="starfield"></canvas>
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="logo-text">AK</span><span class="logo-dot"></span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title"><span class="glitch" data-text="My Services">My Services</span></h1>
+            <p class="page-subtitle">Professional solutions for your digital needs</p>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card reveal tilt-card">
+                    <div class="holographic"></div>
+                    <span class="service-icon">💻</span>
+                    <h3>Frontend Development</h3>
+                    <p>Modern, responsive websites using HTML, CSS, JavaScript. React, Vue, or Vanilla JS expertise.</p>
+                    <ul class="service-features">
+                        <li>✓ Responsive Design</li>
+                        <li>✓ SEO Optimized</li>
+                        <li>✓ Performance Focused</li>
+                        <li>✓ Cross-browser Support</li>
+                    </ul>
+                    <span class="service-price">Starting ₹15,000</span>
+                    <a href="contact.html" class="btn btn-primary btn-sm">Get Quote</a>
+                </div>
+                <div class="service-card reveal tilt-card">
+                    <div class="holographic"></div>
+                    <span class="service-icon">🤖</span>
+                    <h3>ML Solutions</h3>
+                    <p>Custom machine learning models for prediction, classification, and data analysis.</p>
+                    <ul class="service-features">
+                        <li>✓ Custom Models</li>
+                        <li>✓ Data Preprocessing</li>
+                        <li>✓ Model Training</li>
+                        <li>✓ API Integration</li>
+                    </ul>
+                    <span class="service-price">Starting ₹25,000</span>
+                    <a href="contact.html" class="btn btn-primary btn-sm">Get Quote</a>
+                </div>
+                <div class="service-card reveal tilt-card">
+                    <div class="holographic"></div>
+                    <span class="service-icon">📊</span>
+                    <h3>Data Analysis</h3>
+                    <p>Transform raw data into actionable insights with Python, SQL, and visualization tools.</p>
+                    <ul class="service-features">
+                        <li>✓ Data Cleaning</li>
+                        <li>✓ Statistical Analysis</li>
+                        <li>✓ Visualization</li>
+                        <li>✓ Reports & Dashboards</li>
+                    </ul>
+                    <span class="service-price">Starting ₹10,000</span>
+                    <a href="contact.html" class="btn btn-primary btn-sm">Get Quote</a>
+                </div>
+                <div class="service-card reveal tilt-card">
+                    <div class="holographic"></div>
+                    <span class="service-icon">🎨</span>
+                    <h3>UI/UX Design</h3>
+                    <p>User-centered design with modern aesthetics, prototyping, and wireframing.</p>
+                    <ul class="service-features">
+                        <li>✓ Wireframes</li>
+                        <li>✓ Prototypes</li>
+                        <li>✓ User Research</li>
+                        <li>✓ Design Systems</li>
+                    </ul>
+                    <span class="service-price">Starting ₹8,000</span>
+                    <a href="contact.html" class="btn btn-primary btn-sm">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="certifications" id="certifications">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Achievements</span>
+                <h2 class="section-title">My <span class="highlight">Certifications</span></h2>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card reveal" data-lightbox="true"
+                    data-src="https://img.icons8.com/color/200/python.png" data-caption="Python for Data Science - IBM">
+                    <span class="cert-icon">🐍</span>
+                    <h4>Python for Data Science</h4>
+                    <p>IBM • Coursera</p>
+                </div>
+                <div class="cert-card reveal" data-lightbox="true"
+                    data-src="https://img.icons8.com/color/200/artificial-intelligence.png"
+                    data-caption="Machine Learning - Stanford">
+                    <span class="cert-icon">🤖</span>
+                    <h4>Machine Learning</h4>
+                    <p>Stanford • Coursera</p>
+                </div>
+                <div class="cert-card reveal" data-lightbox="true"
+                    data-src="https://img.icons8.com/color/200/html-5.png" data-caption="Frontend Development - Meta">
+                    <span class="cert-icon">💻</span>
+                    <h4>Frontend Development</h4>
+                    <p>Meta • Coursera</p>
+                </div>
+                <div class="cert-card reveal" data-lightbox="true" data-src="https://img.icons8.com/color/200/sql.png"
+                    data-caption="SQL Advanced - HackerRank">
+                    <span class="cert-icon">📊</span>
+                    <h4>SQL Advanced</h4>
+                    <p>HackerRank</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">How I Work</span>
+                <h2 class="section-title">My <span class="highlight">Process</span></h2>
+            </div>
+            <div class="process-grid">
+                <div class="process-step reveal">
+                    <span class="step-number">01</span>
+                    <h3>Discovery</h3>
+                    <p>Understand your requirements, goals, and target audience</p>
+                </div>
+                <div class="process-step reveal">
+                    <span class="step-number">02</span>
+                    <h3>Planning</h3>
+                    <p>Create wireframes, architecture, and project timeline</p>
+                </div>
+                <div class="process-step reveal">
+                    <span class="step-number">03</span>
+                    <h3>Development</h3>
+                    <p>Build with clean code, regular updates, and testing</p>
+                </div>
+                <div class="process-step reveal">
+                    <span class="step-number">04</span>
+                    <h3>Delivery</h3>
+                    <p>Launch, training, and ongoing support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content reveal">
+                <h2>Ready to start your project?</h2>
+                <p>Let's discuss how I can help bring your vision to life.</p>
+                <a href="contact.html" class="btn btn-primary magnetic"><span>Get in Touch →</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">×</button>
+        <button class="lightbox-prev" id="lightbox-prev">❮</button>
+        <img src="" alt="" class="lightbox-image" id="lightbox-image">
+        <button class="lightbox-next" id="lightbox-next">❯</button>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2024 <span class="highlight">Amit Kumar</span>. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" title="Back to Top">↑</button>
+    <a href="https://wa.me/918544860872?text=Hi%20Amit!" target="_blank" class="whatsapp-widget"><span
+            class="whatsapp-icon">💬</span></a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

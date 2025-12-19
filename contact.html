@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self';">
+    <title>Contact | Amit Kumar - Let's Connect</title>
+    <meta name="description"
+        content="Get in touch with Amit Kumar for frontend development, ML solutions, or collaboration opportunities.">
+    <link rel="canonical" href="https://immait.tech/contact.html">
+    <meta property="og:title" content="Contact - Amit Kumar">
+    <meta property="og:url" content="https://immait.tech/contact.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="amit-photo.png">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <canvas id="starfield"></canvas>
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="logo-text">AK</span><span class="logo-dot"></span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title"><span class="glitch" data-text="Contact Me">Contact Me</span></h1>
+            <p class="page-subtitle">Let's start a conversation</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info reveal">
+                    <span class="section-tag">Get in Touch</span>
+                    <h2 class="section-title">Let's <span class="highlight">Connect</span></h2>
+                    <p class="contact-description">I'm always interested in new opportunities, collaborations, or just a
+                        friendly chat about tech.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="contact-icon">📧</span>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:byemail007@gmail.com">byemail007@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">💼</span>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <a href="https://www.linkedin.com/in/imamit01"
+                                    target="_blank">linkedin.com/in/imamit01</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div>
+                                <h4>Location</h4>
+                                <span>Chandigarh, India</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">💬</span>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <a href="https://wa.me/918544860872" target="_blank">+91 8544860872</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://github.com/imamit01" target="_blank" class="social-link"
+                            title="GitHub">GitHub</a>
+                        <a href="https://www.linkedin.com/in/imamit01" target="_blank" class="social-link"
+                            title="LinkedIn">LinkedIn</a>
+                    </div>
+                </div>
+
+                <form class="contact-form reveal" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" class="form-input">
+                            <option value="general">General Inquiry</option>
+                            <option value="project">Project Discussion</option>
+                            <option value="job">Job Opportunity</option>
+                            <option value="collaboration">Collaboration</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="form-input" rows="5" placeholder="Your message..."
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit magnetic"><span>Send Message
+                            →</span></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book a Meeting Section -->
+    <section class="booking-section" id="booking">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Schedule a Call</span>
+                <h2 class="section-title">Book a <span class="highlight">Meeting</span></h2>
+            </div>
+            <div class="booking-form-wrapper reveal">
+                <form class="booking-form" id="booking-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" class="form-input" id="booking-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" class="form-input" id="booking-email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Preferred Date *</label>
+                            <input type="date" class="form-input" id="booking-date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Time *</label>
+                            <select class="form-input" id="booking-time" required>
+                                <option value="">Select time</option>
+                                <option value="09:00">09:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="14:00">02:00 PM</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="16:00">04:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Meeting Type</label>
+                        <select class="form-input" id="booking-type">
+                            <option value="consultation">Free Consultation</option>
+                            <option value="project">Project Discussion</option>
+                            <option value="interview">Interview</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message (Optional)</label>
+                        <textarea class="form-input" id="booking-message" rows="3"
+                            placeholder="What would you like to discuss?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">📅 Book Meeting</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">What People Say</span>
+                <h2 class="section-title">Client <span class="highlight">Reviews</span></h2>
+            </div>
+            <div class="testimonials-slider" id="testimonials-slider">
+                <div class="testimonial-card active">
+                    <p class="testimonial-text">"Amit delivered an exceptional ML solution for our healthcare startup.
+                        His expertise in heart disease prediction models was invaluable."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Dr. Priya Sharma</span>
+                        <span class="author-role">HealthTech Startup</span>
+                    </div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The portfolio website Amit built for me was stunning. The animations
+                        and attention to detail exceeded my expectations."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Rahul Verma</span>
+                        <span class="author-role">Freelance Designer</span>
+                    </div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Great communication and fast delivery. Amit's frontend skills are
+                        top-notch. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Neha Gupta</span>
+                        <span class="author-role">E-commerce Owner</span>
+                    </div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+            <div class="testimonial-dots" id="testimonial-dots"></div>
+        </div>
+    </section>
+
+    <!-- Games Section -->
+    <section class="games-section" id="games">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Have Fun</span>
+                <h2 class="section-title">While You're <span class="highlight">Here</span></h2>
+            </div>
+            <div class="games-grid">
+                <button class="game-trigger reveal" id="open-typing-game">
+                    <span class="game-icon">⌨️</span>
+                    <h4>Typing Speed Test</h4>
+                    <p>Test your typing speed and accuracy</p>
+                </button>
+                <button class="game-trigger reveal" id="open-voice-nav">
+                    <span class="game-icon">🎤</span>
+                    <h4>Voice Navigation</h4>
+                    <p>Navigate with voice commands</p>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Modal -->
+    <div class="game-modal" id="game-modal">
+        <div class="game-content">
+            <button class="game-close" id="game-close">×</button>
+            <h2>⌨️ Typing Speed Test</h2>
+            <div class="game-stats">
+                <span id="game-time">60</span>s | <span id="game-wpm">0</span> WPM | <span
+                    id="game-accuracy">100</span>%
+            </div>
+            <p class="game-text" id="game-text"></p>
+            <textarea class="game-input form-input" id="game-input" placeholder="Start typing here..."
+                rows="3"></textarea>
+            <div class="game-actions">
+                <button class="btn btn-secondary" id="game-restart">🔄 Restart</button>
+                <button class="btn btn-primary" id="game-start">▶️ Start</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Indicator -->
+    <div class="voice-indicator" id="voice-indicator">
+        <span class="voice-icon">🎤</span>
+        <span class="voice-text">Listening...</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2024 <span class="highlight">Amit Kumar</span>. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" title="Back to Top">↑</button>
+    <a href="https://wa.me/918544860872?text=Hi%20Amit!" target="_blank" class="whatsapp-widget"><span
+            class="whatsapp-icon">💬</span></a>
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

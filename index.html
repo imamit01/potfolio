@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== SECURITY HEADERS (via meta tags) ===== -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+    <!-- ===== PRIMARY SEO ===== -->
+    <title>Amit Kumar | Frontend Developer & ML Researcher | immait.tech</title>
+    <meta name="description"
+        content="Amit Kumar - M.Tech Computer Engineering graduate, Frontend Developer & Machine Learning Researcher. Expert in HTML, CSS, JavaScript, Python, and ML. 3 Scopus-indexed publications on heart disease prediction.">
+    <meta name="keywords"
+        content="Amit Kumar, Frontend Developer, ML Researcher, Machine Learning, Web Developer, Python Developer, Heart Disease Prediction, Chandigarh University, immait.tech, Portfolio">
+    <meta name="author" content="Amit Kumar">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://immait.tech/">
+
+    <!-- ===== OPEN GRAPH (Facebook, LinkedIn, WhatsApp) ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Amit Kumar Portfolio">
+    <meta property="og:url" content="https://immait.tech/">
+    <meta property="og:title" content="Amit Kumar | Frontend Developer & ML Researcher">
+    <meta property="og:description"
+        content="M.Tech graduate specializing in modern web interfaces and machine learning. 3 Scopus-indexed publications. Expert in HTML, CSS, JavaScript, Python.">
+    <meta property="og:image" content="https://immait.tech/amit-photo.png">
+    <meta property="og:image:width" content="400">
+    <meta property="og:image:height" content="400">
+    <meta property="og:image:alt" content="Amit Kumar - Frontend Developer & ML Researcher">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- ===== TWITTER CARD ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@imamit01">
+    <meta name="twitter:creator" content="@imamit01">
+    <meta name="twitter:title" content="Amit Kumar | Frontend Developer & ML Researcher">
+    <meta name="twitter:description"
+        content="M.Tech graduate with expertise in web development and machine learning. 3 Scopus publications on heart disease prediction.">
+    <meta name="twitter:image" content="https://immait.tech/amit-photo.png">
+    <meta name="twitter:image:alt" content="Amit Kumar Portfolio">
+
+    <!-- ===== ADDITIONAL SEO ===== -->
+    <meta name="theme-color" content="#00f3ff">
+    <meta name="msapplication-TileColor" content="#050505">
+    <meta name="application-name" content="Amit Kumar Portfolio">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Amit Kumar">
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- ===== STRUCTURED DATA (JSON-LD) ===== -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Amit Kumar",
+        "url": "https://immait.tech",
+        "image": "https://immait.tech/amit-photo.png",
+        "jobTitle": "Frontend Developer & ML Researcher",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Freelance"
+        },
+        "alumniOf": [
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Chandigarh University",
+                "sameAs": "https://www.cuchd.in/"
+            },
+            {
+                "@type": "CollegeOrUniversity",
+                "name": "Shimla University"
+            }
+        ],
+        "knowsAbout": ["Frontend Development", "Machine Learning", "HTML", "CSS", "JavaScript", "Python", "SQL", "Data Science"],
+        "email": "byemail007@gmail.com",
+        "sameAs": [
+            "https://www.linkedin.com/in/imamit01",
+            "https://immait.tech"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Chandigarh",
+            "addressCountry": "India"
+        },
+        "description": "M.Tech Computer Engineering graduate with expertise in modern web interfaces and machine learning. Published researcher with 3 Scopus-indexed papers on heart disease prediction."
+    }
+    </script>
+
+    <!-- ===== FONTS & STYLES ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ===== FAVICON ===== -->
+    <link rel="icon" type="image/png" href="amit-photo.png">
+    <link rel="apple-touch-icon" href="amit-photo.png">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">AK</div>
+            <div class="loader-bar">
+                <div class="loader-progress" id="loader-progress"></div>
+            </div>
+            <div class="loader-text">Initializing System...</div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Cursor Elements -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+    <div class="cursor-trail" id="cursor-trail"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particles"></canvas>
+    <canvas id="starfield"></canvas>
+
+    <!-- CRT Overlay -->
+    <div class="crt-overlay"></div>
+
+    <!-- Theme Switcher & Controls -->
+    <div class="controls">
+        <button class="control-btn" id="theme-toggle" title="Switch Theme">🎨</button>
+        <button class="control-btn" id="sound-toggle" title="Toggle Sound">🔊</button>
+        <button class="control-btn" id="terminal-toggle" title="Open Terminal">💻</button>
+    </div>
+
+    <!-- Live Clock -->
+    <div class="live-clock" id="live-clock">
+        <span class="clock-time">00:00:00</span>
+        <span class="clock-zone">IST</span>
+    </div>
+
+    <!-- Announcement Banner -->
+    <div class="announcement-banner" id="announcement-banner">
+        <span class="announcement-text">🎉 <strong>New:</strong> Now accepting freelance projects!
+            <a href="contact.html">Get in touch →</a>
+        </span>
+        <button class="announcement-close" onclick="closeAnnouncement()">×</button>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo"><span class="logo-text">AK</span><span class="logo-dot"></span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-profile">
+                <img src="amit-photo.png" alt="Amit Kumar" class="profile-img">
+                <div class="profile-ring"></div>
+                <div class="profile-ring ring-2"></div>
+            </div>
+            <div class="hero-badge"><span class="badge-dot"></span><span>Available for opportunities</span></div>
+            <h1 class="hero-title">
+                <span class="glitch" data-text="Amit Kumar">Amit Kumar</span>
+            </h1>
+            <p class="hero-subtitle">
+                <span class="typewriter" id="typewriter"></span>
+                <span class="typewriter-cursor">|</span>
+            </p>
+            <p class="hero-description scramble-text">M.Tech graduate in Computer Engineering with expertise in building
+                modern, performant web interfaces and applying machine learning techniques to real-world problems.</p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary magnetic"><span>View Projects</span></a>
+                <a href="#contact" class="btn btn-secondary magnetic"><span>Contact Me</span></a>
+                <a href="#" class="btn btn-outline magnetic" id="download-resume"><span>📄 Download CV</span></a>
+            </div>
+            <div class="hero-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                </svg><span>Chandigarh, India</span></div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-orb"></div>
+            <div class="hero-ring ring-1"></div>
+            <div class="hero-ring ring-2"></div>
+            <div class="hero-ring ring-3"></div>
+        </div>
+        <div class="scroll-indicator"><span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats" id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card tilt-card reveal">
+                    <div class="holographic"></div>
+                    <div class="stat-number" data-target="20">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card tilt-card reveal">
+                    <div class="holographic"></div>
+                    <div class="stat-number" data-target="2">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card tilt-card reveal">
+                    <div class="holographic"></div>
+                    <div class="stat-number" data-target="3">0</div>
+                    <div class="stat-suffix"></div>
+                    <div class="stat-label">Scopus Publications</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline-section" id="timeline">
+        <div class="container">
+            <div class="section-header reveal"><span class="section-tag">Journey</span>
+                <h2 class="section-title">Education & <span class="highlight">Experience</span></h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content tilt-card">
+                        <div class="holographic"></div>
+                        <span class="timeline-date">June 2022 – June 2024</span>
+                        <h3>Master of Engineering</h3>
+                        <p>Computer Engineering • Chandigarh University</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content tilt-card">
+                        <div class="holographic"></div>
+                        <span class="timeline-date">Feb 2022 – Apr 2022</span>
+                        <h3>Data Science Intern</h3>
+                        <p>LetsGrowMore • ML & Data Analysis</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content tilt-card">
+                        <div class="holographic"></div>
+                        <span class="timeline-date">Feb 2021 – Jun 2021</span>
+                        <h3>Frontend Developer</h3>
+                        <p>CSDT IT Solution • Web Development</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content tilt-card">
+                        <div class="holographic"></div>
+                        <span class="timeline-date">July 2017 – June 2021</span>
+                        <h3>Bachelor of Technology</h3>
+                        <p>Computer Science & Engineering • Shimla University</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header reveal"><span class="section-tag">Portfolio</span>
+                <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+            </div>
+            <div class="projects-grid" id="projects-grid"></div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="publications" id="publications">
+        <div class="container">
+            <div class="section-header reveal"><span class="section-tag">Research</span>
+                <h2 class="section-title">Academic <span class="highlight">Publications</span></h2>
+            </div>
+            <div class="publications-grid">
+                <article class="publication-card tilt-card reveal">
+                    <div class="holographic"></div>
+                    <div class="pub-type">Research Paper</div>
+                    <h3 class="pub-title">A Hybrid Model Approach to Machine Learning Based Heart Disease Prediction
+                    </h3>
+                    <div class="pub-meta"><span>SCOPES 2024 • Odisha • May 2025</span></div>
+                    <div class="pub-authors">Authors: Amit Kumar, Reshma Khan</div>
+                    <a href="https://doi.org/10.1109/SCOPES64467.2024.10991142" target="_blank" class="pub-doi">DOI:
+                        10.1109/SCOPES64467.2024.10991142 ↗</a>
+                </article>
+                <article class="publication-card tilt-card reveal">
+                    <div class="holographic"></div>
+                    <div class="pub-type">Book Chapter</div>
+                    <h3 class="pub-title">Heart Disease Prediction Using Machine Learning Techniques</h3>
+                    <div class="pub-meta"><span>CRC Press / Taylor & Francis • November 2024</span></div>
+                    <div class="pub-authors">Book: Sustainable Materials, Structures and IoT</div>
+                    <a href="https://doi.org/10.1201/9781003596776-30" target="_blank" class="pub-doi">DOI:
+                        10.1201/9781003596776-30 ↗</a>
+                </article>
+                <article class="publication-card tilt-card reveal">
+                    <div class="holographic"></div>
+                    <div class="pub-type">Review Paper</div>
+                    <h3 class="pub-title">A Review on Heart Disease Detection Using Machine Learning Techniques</h3>
+                    <div class="pub-meta"><span>CCICT 2024 • Delhi • July 2024</span></div>
+                    <div class="pub-authors">6th Intl. Conf. on Computational Intelligence</div>
+                    <a href="https://doi.org/10.1109/CCICT62777.2024.00059" target="_blank" class="pub-doi">DOI:
+                        10.1109/CCICT62777.2024.00059 ↗</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header reveal"><span class="section-tag">Expertise</span>
+                <h2 class="section-title">Technical <span class="highlight">Skills</span></h2>
+            </div>
+            <div class="skills-container" id="skills-container"></div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Thoughts</span>
+                <h2 class="section-title">My <span class="highlight">Blog</span></h2>
+                <p class="section-subtitle">Tech insights, updates, and personal notes</p>
+            </div>
+
+            <!-- Blog Controls -->
+            <div class="blog-controls reveal">
+                <div class="blog-search">
+                    <input type="text" id="blog-search" class="form-input" placeholder="🔍 Search posts...">
+                </div>
+                <div class="blog-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="ml">🤖 ML</button>
+                    <button class="filter-btn" data-filter="frontend">💻 Frontend</button>
+                    <button class="filter-btn" data-filter="personal">📝 Personal</button>
+                </div>
+                <div class="blog-sort">
+                    <select id="blog-sort" class="form-input">
+                        <option value="date">📅 Latest</option>
+                        <option value="likes">❤️ Most Liked</option>
+                        <option value="comments">💬 Most Discussed</option>
+                    </select>
+                </div>
+                <button class="btn btn-outline btn-sm" id="admin-btn" title="Admin Mode">⚙️ Admin</button>
+            </div>
+
+            <div class="blog-grid" id="blog-grid"></div>
+        </div>
+    </section>
+
+    <!-- Blog Modal -->
+    <div class="blog-modal" id="blog-modal">
+        <div class="blog-modal-content">
+            <button class="blog-modal-close" id="blog-modal-close">×</button>
+            <div class="blog-modal-header">
+                <img src="" alt="" class="blog-modal-image" id="blog-modal-image">
+                <div class="blog-modal-gallery" id="blog-modal-gallery"></div>
+            </div>
+            <div class="blog-modal-body">
+                <div class="blog-modal-meta">
+                    <span class="blog-modal-date" id="blog-modal-date"></span>
+                    <span class="blog-modal-reading" id="blog-modal-reading"></span>
+                    <span class="blog-modal-tag" id="blog-modal-tag"></span>
+                </div>
+                <h2 class="blog-modal-title" id="blog-modal-title"></h2>
+                <div class="blog-modal-text" id="blog-modal-text"></div>
+
+                <!-- Share Buttons -->
+                <div class="blog-share">
+                    <span>Share:</span>
+                    <button class="share-btn" id="share-whatsapp" title="WhatsApp">📱</button>
+                    <button class="share-btn" id="share-twitter" title="Twitter">🐦</button>
+                    <button class="share-btn" id="share-linkedin" title="LinkedIn">💼</button>
+                    <button class="share-btn" id="share-copy" title="Copy Link">📋</button>
+                </div>
+
+                <div class="blog-modal-actions">
+                    <button class="blog-action-btn" id="blog-like-btn">
+                        <span class="action-icon">❤️</span>
+                        <span class="action-count" id="blog-like-count">0</span>
+                    </button>
+                    <button class="blog-action-btn" id="blog-star-btn">
+                        <span class="action-icon">⭐</span>
+                        <span class="action-count" id="blog-star-count">0</span>
+                    </button>
+                </div>
+                <div class="blog-comments-section">
+                    <h4>Comments</h4>
+                    <div class="blog-comments" id="blog-comments"></div>
+                    <form class="blog-comment-form" id="blog-comment-form">
+                        <input type="text" class="form-input" id="comment-name" placeholder="Your Name" required>
+                        <textarea class="form-input" id="comment-text" placeholder="Write a comment..." rows="2"
+                            required></textarea>
+                        <button type="submit" class="btn btn-primary btn-sm">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Modal -->
+    <div class="admin-modal" id="admin-modal">
+        <div class="admin-modal-content">
+            <button class="blog-modal-close" id="admin-modal-close">×</button>
+            <h2 class="admin-title">📝 Blog Admin</h2>
+            <div class="admin-tabs">
+                <button class="admin-tab active" data-tab="new">New Post</button>
+                <button class="admin-tab" data-tab="drafts">Drafts</button>
+                <button class="admin-tab" data-tab="manage">Manage</button>
+            </div>
+            <div class="admin-body" id="admin-body">
+                <!-- New Post Form -->
+                <form class="admin-form" id="admin-form">
+                    <input type="hidden" id="edit-post-id">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-input" id="post-title" placeholder="Post title..." required>
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select class="form-input" id="post-category">
+                            <option value="ml">🤖 Machine Learning</option>
+                            <option value="frontend">💻 Frontend</option>
+                            <option value="personal">📝 Personal</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="text" class="form-input" id="post-image" placeholder="https://...">
+                    </div>
+                    <div class="form-group">
+                        <label>Content (Markdown supported)</label>
+                        <textarea class="form-input" id="post-content" rows="10" placeholder="Write your post..."
+                            required></textarea>
+                    </div>
+                    <div class="form-group checkbox">
+                        <label><input type="checkbox" id="post-featured"> ⭐ Featured Post</label>
+                    </div>
+                    <div class="admin-actions">
+                        <button type="button" class="btn btn-secondary" id="save-draft">💾 Save Draft</button>
+                        <button type="submit" class="btn btn-primary">🚀 Publish</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">What I Offer</span>
+                <h2 class="section-title">My <span class="highlight">Services</span></h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal tilt-card">
+                    <div class="holographic"></div>
+                    <span class="service-icon">💻</span>
+                    <h3>Frontend Development</h3>
+                    <p>Modern, responsive websites with HTML, CSS, JavaScript. React, Vue, or Vanilla JS.</p>
+                    <span class="service-price">Starting ₹15,000</span>
+                </div>
+                <div class="service-card reveal tilt-card">
+                    <div class="holographic"></div>
+                    <span class="service-icon">🤖</span>
+                    <h3>ML Solutions</h3>
+                    <p>Custom machine learning models for prediction, classification, and data analysis.</p>
+                    <span class="service-price">Starting ₹25,000</span>
+                </div>
+                <div class="service-card reveal tilt-card">
+                    <div class="holographic"></div>
+                    <span class="service-icon">📊</span>
+                    <h3>Data Analysis</h3>
+                    <p>Transform raw data into actionable insights with Python, SQL, and visualization.</p>
+                    <span class="service-price">Starting ₹10,000</span>
+                </div>
+                <div class="service-card reveal tilt-card">
+                    <div class="holographic"></div>
+                    <span class="service-icon">🎨</span>
+                    <h3>UI/UX Design</h3>
+                    <p>User-centered design with modern aesthetics, prototyping, and wireframing.</p>
+                    <span class="service-price">Starting ₹8,000</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">What People Say</span>
+                <h2 class="section-title">Client <span class="highlight">Reviews</span></h2>
+            </div>
+            <div class="testimonials-slider" id="testimonials-slider">
+                <div class="testimonial-card active">
+                    <p class="testimonial-text">"Amit delivered an exceptional ML solution for our healthcare startup.
+                        His expertise in heart disease prediction models was invaluable."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Dr. Priya Sharma</span>
+                        <span class="author-role">HealthTech Startup</span>
+                    </div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The portfolio website Amit built for me was stunning. The animations
+                        and attention to detail exceeded my expectations."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Rahul Verma</span>
+                        <span class="author-role">Freelance Designer</span>
+                    </div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Great communication and fast delivery. Amit's frontend skills are
+                        top-notch. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Neha Gupta</span>
+                        <span class="author-role">E-commerce Owner</span>
+                    </div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+            <div class="testimonial-dots" id="testimonial-dots"></div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Achievements</span>
+                <h2 class="section-title">My <span class="highlight">Certifications</span></h2>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card reveal" data-lightbox="true"
+                    data-src="https://img.icons8.com/color/200/python.png" data-caption="Python for Data Science - IBM">
+                    <span class="cert-icon">🐍</span>
+                    <h4>Python for Data Science</h4>
+                    <p>IBM • Coursera</p>
+                </div>
+                <div class="cert-card reveal" data-lightbox="true"
+                    data-src="https://img.icons8.com/color/200/artificial-intelligence.png"
+                    data-caption="Machine Learning - Stanford">
+                    <span class="cert-icon">🤖</span>
+                    <h4>Machine Learning</h4>
+                    <p>Stanford • Coursera</p>
+                </div>
+                <div class="cert-card reveal" data-lightbox="true"
+                    data-src="https://img.icons8.com/color/200/html-5.png" data-caption="Frontend Development - Meta">
+                    <span class="cert-icon">💻</span>
+                    <h4>Frontend Development</h4>
+                    <p>Meta • Coursera</p>
+                </div>
+                <div class="cert-card reveal" data-lightbox="true" data-src="https://img.icons8.com/color/200/sql.png"
+                    data-caption="SQL Advanced - HackerRank">
+                    <span class="cert-icon">📊</span>
+                    <h4>SQL Advanced</h4>
+                    <p>HackerRank</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Stats Section -->
+    <section class="github-stats" id="github">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Open Source</span>
+                <h2 class="section-title">GitHub <span class="highlight">Activity</span></h2>
+            </div>
+            <div class="github-grid">
+                <div class="github-card reveal">
+                    <span class="github-number" data-target="15">0</span>
+                    <span class="github-label">Repositories</span>
+                </div>
+                <div class="github-card reveal">
+                    <span class="github-number" data-target="500">0</span>
+                    <span class="github-label">Contributions</span>
+                </div>
+                <div class="github-card reveal">
+                    <span class="github-number" data-target="25">0</span>
+                    <span class="github-label">Stars Earned</span>
+                </div>
+                <div class="github-card reveal">
+                    <span class="github-number" data-target="10">0</span>
+                    <span class="github-label">Followers</span>
+                </div>
+            </div>
+            <a href="https://github.com/imamit01" target="_blank" class="btn btn-outline magnetic reveal">
+                <span>View GitHub Profile →</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Games/Fun Section -->
+    <section class="games-section" id="games">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Have Fun</span>
+                <h2 class="section-title">Mini <span class="highlight">Games</span></h2>
+            </div>
+            <div class="games-grid">
+                <button class="game-trigger reveal" id="open-typing-game">
+                    <span class="game-icon">⌨️</span>
+                    <h4>Typing Speed Test</h4>
+                    <p>Test your typing speed and accuracy</p>
+                </button>
+                <button class="game-trigger reveal" id="open-voice-nav">
+                    <span class="game-icon">🎤</span>
+                    <h4>Voice Navigation</h4>
+                    <p>Navigate with voice commands</p>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info reveal">
+                    <span class="section-tag">Get in Touch</span>
+                    <h2 class="section-title">Let's <span class="highlight">Connect</span></h2>
+                    <p class="contact-description">I'm always interested in new opportunities and collaborations.</p>
+                    <div class="contact-links">
+                        <a href="mailto:byemail007@gmail.com" class="contact-link magnetic"><span
+                                class="contact-link-label">Email</span><span
+                                class="contact-link-value">byemail007@gmail.com</span></a>
+                        <a href="https://www.linkedin.com/in/imamit01" target="_blank"
+                            class="contact-link magnetic"><span class="contact-link-label">LinkedIn</span><span
+                                class="contact-link-value">linkedin.com/in/imamit01</span></a>
+                    </div>
+                </div>
+                <form class="contact-form reveal" id="contact-form">
+                    <div class="form-group"><label for="name">Name</label><input type="text" id="name" name="name"
+                            class="form-input" required></div>
+                    <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email"
+                            class="form-input" required></div>
+                    <div class="form-group"><label for="message">Message</label><textarea id="message" name="message"
+                            class="form-input" rows="4" required></textarea></div>
+                    <button type="submit" class="btn btn-primary btn-submit magnetic"><span>Send Message</span></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Designed & Developed by <span class="highlight">Amit Kumar</span> © 2024</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" title="Back to Top">↑</button>
+
+    <!-- AI Chatbot Widget -->
+    <div class="ai-chatbot" id="ai-chatbot">
+        <button class="chatbot-trigger" id="chatbot-trigger" onclick="toggleChatbot()">
+            <span class="chatbot-icon">🤖</span>
+            <span class="chatbot-label">Ask AI</span>
+        </button>
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">🤖</div>
+                <div class="chatbot-info">
+                    <h4>Amit's AI Assistant</h4>
+                    <span class="chatbot-status">● Online</span>
+                </div>
+                <button class="chatbot-close" onclick="toggleChatbot()">×</button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="chat-message bot">
+                    <p>👋 Hi! I'm Amit's AI Assistant. Ask me anything about:</p>
+                    <div class="chat-suggestions">
+                        <button onclick="askBot('Tell me about Amit')">About Amit</button>
+                        <button onclick="askBot('What are his skills?')">Skills</button>
+                        <button onclick="askBot('Show me projects')">Projects</button>
+                        <button onclick="askBot('How to contact?')">Contact</button>
+                    </div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Ask me anything..."
+                    onkeypress="if(event.key==='Enter')sendToBot()">
+                <button onclick="sendToBot()">➤</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Language Toggle -->
+    <button class="lang-toggle" id="lang-toggle" title="Switch Language">🌐 EN</button>
+
+    <!-- Theme Selector (4 themes) -->
+    <div class="theme-selector" id="theme-selector">
+        <button class="theme-option" data-theme="cyan" title="Cyan">🔵</button>
+        <button class="theme-option" data-theme="purple" title="Purple">🟣</button>
+        <button class="theme-option" data-theme="green" title="Green">🟢</button>
+        <button class="theme-option" data-theme="orange" title="Orange">🟠</button>
+    </div>
+
+    <!-- Newsletter Popup -->
+    <div class="newsletter-popup" id="newsletter-popup">
+        <div class="newsletter-content">
+            <button class="newsletter-close" id="newsletter-close">×</button>
+            <h3>📧 Stay Updated!</h3>
+            <p>Get notified about new projects and blog posts.</p>
+            <form class="newsletter-form" id="newsletter-form">
+                <input type="email" class="form-input" id="newsletter-email" placeholder="Enter your email" required>
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">×</button>
+        <button class="lightbox-prev" id="lightbox-prev">❮</button>
+        <img src="" alt="" class="lightbox-image" id="lightbox-image">
+        <button class="lightbox-next" id="lightbox-next">❯</button>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <!-- Typing Game Modal -->
+    <div class="game-modal" id="game-modal">
+        <div class="game-content">
+            <button class="game-close" id="game-close">×</button>
+            <h2>⌨️ Typing Speed Test</h2>
+            <div class="game-stats">
+                <span id="game-time">60</span>s | <span id="game-wpm">0</span> WPM | <span
+                    id="game-accuracy">100</span>%
+            </div>
+            <p class="game-text" id="game-text"></p>
+            <textarea class="game-input form-input" id="game-input" placeholder="Start typing here..."
+                rows="3"></textarea>
+            <div class="game-actions">
+                <button class="btn btn-secondary" id="game-restart">🔄 Restart</button>
+                <button class="btn btn-primary" id="game-start">▶️ Start</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Voice Command Indicator -->
+    <div class="voice-indicator" id="voice-indicator">
+        <span class="voice-icon">🎤</span>
+        <span class="voice-text">Listening...</span>
+    </div>
+
+    <!-- Terminal Modal -->
+    <div class="terminal-modal" id="terminal-modal">
+        <div class="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dots"><span></span><span></span><span></span></div>
+                <span class="terminal-title">amit@portfolio:~</span>
+                <button class="terminal-close" id="terminal-close">×</button>
+            </div>
+            <div class="terminal-body" id="terminal-body">
+                <div class="terminal-output" id="terminal-output">
+                    <p>Welcome to Amit's Terminal v2.0</p>
+                    <p>Type 'help' for available commands.</p>
+                </div>
+                <div class="terminal-input-line">
+                    <span class="terminal-prompt">amit@portfolio:~$</span>
+                    <input type="text" class="terminal-input" id="terminal-input" autocomplete="off" spellcheck="false">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Easter Egg Notification -->
+    <div class="easter-egg-notify" id="easter-egg-notify">🎮 Konami Code Activated!</div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- PWA Install Prompt -->
+    <div class="pwa-prompt" id="pwa-prompt">
+        <span>📱 Install App</span>
+        <button class="pwa-install" id="pwa-install">Install</button>
+        <button class="pwa-close" id="pwa-close">×</button>
+    </div>
+
+    <!-- Page Transition Overlay -->
+    <div class="page-transition" id="page-transition"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

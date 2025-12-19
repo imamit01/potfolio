@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Amit Kumar Portfolio</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="amit-photo.png">
+</head>
+
+<body>
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <canvas id="starfield"></canvas>
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="logo-text">AK</span><span class="logo-dot"></span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Admin Content -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title"><span class="glitch" data-text="Admin Dashboard">Admin Dashboard</span></h1>
+            <p class="page-subtitle">Manage your portfolio content</p>
+        </div>
+    </section>
+
+    <!-- Login Section (shown initially) -->
+    <section class="admin-login" id="admin-login">
+        <div class="container">
+            <div class="login-card">
+                <h2>🔐 Admin Login</h2>
+                <form id="admin-login-form">
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-input" id="admin-password"
+                            placeholder="Enter admin password">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login →</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Dashboard (hidden until login) -->
+    <section class="admin-dashboard" id="admin-dashboard" style="display: none;">
+        <div class="container">
+            <!-- Stats Overview -->
+            <div class="admin-stats">
+                <div class="admin-stat-card">
+                    <span class="stat-icon">📦</span>
+                    <span class="stat-value" id="stat-projects">0</span>
+                    <span class="stat-name">Custom Projects</span>
+                </div>
+                <div class="admin-stat-card">
+                    <span class="stat-icon">📝</span>
+                    <span class="stat-value" id="stat-blogs">0</span>
+                    <span class="stat-name">Blog Posts</span>
+                </div>
+                <div class="admin-stat-card">
+                    <span class="stat-icon">⭐</span>
+                    <span class="stat-value" id="stat-testimonials">0</span>
+                    <span class="stat-name">Testimonials</span>
+                </div>
+                <div class="admin-stat-card">
+                    <span class="stat-icon">📧</span>
+                    <span class="stat-value" id="stat-subscribers">0</span>
+                    <span class="stat-name">Subscribers</span>
+                </div>
+                <div class="admin-stat-card">
+                    <span class="stat-icon">👁️</span>
+                    <span class="stat-value" id="stat-visitors">0</span>
+                    <span class="stat-name">Total Visits</span>
+                </div>
+                <div class="admin-stat-card">
+                    <span class="stat-icon">📅</span>
+                    <span class="stat-value" id="stat-bookings">0</span>
+                    <span class="stat-name">Bookings</span>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="admin-section">
+                <h3>⚡ Quick Actions</h3>
+                <div class="action-grid">
+                    <a href="projects.html" class="action-card">
+                        <span class="action-icon">📦</span>
+                        <span>Manage Projects</span>
+                    </a>
+                    <a href="blog.html" class="action-card">
+                        <span class="action-icon">📝</span>
+                        <span>Manage Blog</span>
+                    </a>
+                    <button class="action-card" onclick="viewNewsletterSubs()">
+                        <span class="action-icon">📧</span>
+                        <span>View Subscribers</span>
+                    </button>
+                    <button class="action-card" onclick="exportNewsletterCSV()">
+                        <span class="action-icon">📥</span>
+                        <span>Export CSV</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Analytics Dashboard -->
+            <div class="admin-section">
+                <h3>📊 Analytics Dashboard</h3>
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h4>📈 Page Views (Last 7 Days)</h4>
+                        <div class="chart-container" id="views-chart"></div>
+                        <div class="analytics-stats">
+                            <span>Today: <strong id="views-today">0</strong></span>
+                            <span>This Week: <strong id="views-week">0</strong></span>
+                        </div>
+                    </div>
+                    <div class="analytics-card">
+                        <h4>🌍 Top Pages</h4>
+                        <div id="top-pages-list" class="top-list"></div>
+                    </div>
+                    <div class="analytics-card">
+                        <h4>🕐 Peak Hours</h4>
+                        <div id="peak-hours" class="peak-hours"></div>
+                    </div>
+                    <div class="analytics-card">
+                        <h4>📱 Device Breakdown</h4>
+                        <div id="device-breakdown" class="device-stats"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Customizer -->
+            <div class="admin-section">
+                <h3>🎨 Theme Customizer</h3>
+                <div class="theme-customizer">
+                    <div class="customizer-row">
+                        <div class="customizer-group">
+                            <label>Primary Color</label>
+                            <input type="color" id="custom-primary" value="#00f3ff">
+                        </div>
+                        <div class="customizer-group">
+                            <label>Secondary Color</label>
+                            <input type="color" id="custom-secondary" value="#bf00ff">
+                        </div>
+                        <div class="customizer-group">
+                            <label>Background</label>
+                            <input type="color" id="custom-bg" value="#050505">
+                        </div>
+                    </div>
+                    <div class="customizer-row">
+                        <div class="customizer-group">
+                            <label>Font Family</label>
+                            <select id="custom-font" class="form-input">
+                                <option value="'Space Grotesk', sans-serif">Space Grotesk</option>
+                                <option value="'Inter', sans-serif">Inter</option>
+                                <option value="'Roboto', sans-serif">Roboto</option>
+                                <option value="'Poppins', sans-serif">Poppins</option>
+                            </select>
+                        </div>
+                        <div class="customizer-group">
+                            <label>Card Style</label>
+                            <select id="custom-card-style" class="form-input">
+                                <option value="glassmorphism">Glassmorphism</option>
+                                <option value="solid">Solid</option>
+                                <option value="gradient">Gradient</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="customizer-actions">
+                        <button class="btn btn-primary btn-sm" onclick="applyCustomTheme()">✨ Apply Theme</button>
+                        <button class="btn btn-outline btn-sm" onclick="resetTheme()">🔄 Reset</button>
+                        <button class="btn btn-outline btn-sm" onclick="saveTheme()">💾 Save</button>
+                    </div>
+                    <div class="theme-preview" id="theme-preview">
+                        <p>Preview: <span class="preview-text">Sample Text</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking System -->
+            <div class="admin-section">
+                <h3>📅 Booking Management</h3>
+                <div class="booking-tabs">
+                    <button class="booking-tab active" data-tab="pending">⏳ Pending</button>
+                    <button class="booking-tab" data-tab="confirmed">✅ Confirmed</button>
+                    <button class="booking-tab" data-tab="settings">⚙️ Settings</button>
+                </div>
+                <div class="booking-content" id="booking-content">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+
+            <!-- Newsletter Subscribers -->
+            <div class="admin-section">
+                <h3>📧 Newsletter Subscribers</h3>
+                <div id="subscribers-list" class="manage-list"></div>
+            </div>
+
+            <!-- Testimonials Management -->
+            <div class="admin-section">
+                <h3>⭐ Testimonials</h3>
+                <div id="testimonials-admin-list" class="manage-list"></div>
+                <button class="btn btn-outline btn-sm" style="margin-top: 1rem;" onclick="addTestimonialPrompt()">
+                    ➕ Add Testimonial
+                </button>
+            </div>
+
+            <!-- Data Management -->
+            <div class="admin-section">
+                <h3>🗄️ Data Management</h3>
+                <div class="data-actions">
+                    <button class="btn btn-outline btn-sm" onclick="exportAllData()">📤 Export All Data</button>
+                    <button class="btn btn-outline btn-sm" onclick="clearAllData()">🗑️ Clear All Data</button>
+                    <button class="btn btn-outline btn-sm" onclick="importData()">📥 Import Data</button>
+                </div>
+                <input type="file" id="import-file" accept=".json" style="display: none;">
+            </div>
+        </div>
+    </section>
+
+    <div class="toast" id="toast"></div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2024 <span class="highlight">Amit Kumar</span>. Admin Panel</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" title="Back to Top">↑</button>
+
+    <script src="script.js"></script>
+    <script>
+        // Admin Dashboard Script
+        const adminPassword = 'amit123';
+        let isLoggedIn = false;
+
+        document.getElementById('admin-login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const pwd = document.getElementById('admin-password').value;
+            if (pwd === adminPassword) {
+                isLoggedIn = true;
+                document.getElementById('admin-login').style.display = 'none';
+                document.getElementById('admin-dashboard').style.display = 'block';
+                loadAdminData();
+                loadAnalytics();
+                loadBookings();
+                loadSavedTheme();
+                showToast('✅ Login successful!');
+            } else {
+                showToast('❌ Wrong password!');
+            }
+        });
+
+        function loadAdminData() {
+            const customProjects = JSON.parse(localStorage.getItem('customProjects') || '[]');
+            const blogPosts = JSON.parse(localStorage.getItem('blogPosts') || '[]');
+            const testimonials = JSON.parse(localStorage.getItem('customTestimonials') || '[]');
+            const subscribers = JSON.parse(localStorage.getItem('newsletterSubs') || '[]');
+            const analytics = JSON.parse(localStorage.getItem('siteAnalytics') || '{}');
+            const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+
+            document.getElementById('stat-projects').textContent = customProjects.length;
+            document.getElementById('stat-blogs').textContent = blogPosts.length;
+            document.getElementById('stat-testimonials').textContent = testimonials.length;
+            document.getElementById('stat-subscribers').textContent = subscribers.length;
+            document.getElementById('stat-visitors').textContent = analytics.totalVisits || 0;
+            document.getElementById('stat-bookings').textContent = bookings.length;
+
+            // Subscribers list
+            const subsList = document.getElementById('subscribers-list');
+            subsList.innerHTML = subscribers.length ? subscribers.map(s => `
+                <div class="manage-item">
+                    <span>📧 ${s.email}</span>
+                    <span style="color: var(--gray); font-size: 0.85rem;">${new Date(s.date).toLocaleDateString()}</span>
+                </div>
+            `).join('') : '<p style="color: var(--gray);">No subscribers yet.</p>';
+
+            // Testimonials list
+            const testList = document.getElementById('testimonials-admin-list');
+            testList.innerHTML = testimonials.length ? testimonials.map(t => `
+                <div class="manage-item">
+                    <div>
+                        <strong>${t.name}</strong> - ${t.role}
+                        <p style="color: var(--gray); font-size: 0.85rem;">"${t.text.substring(0, 50)}..."</p>
+                    </div>
+                    <div class="manage-actions">
+                        <span style="color: ${t.approved ? 'var(--primary)' : 'var(--gray)'}">
+                            ${t.approved ? '✓ Approved' : '⏳ Pending'}
+                        </span>
+                        ${!t.approved ? `<button class="btn btn-sm" onclick="approveTestimonial(${t.id}); loadAdminData();">✓</button>` : ''}
+                        <button class="btn btn-sm btn-danger" onclick="deleteTestimonial(${t.id}); loadAdminData();">🗑️</button>
+                    </div>
+                </div>
+            `).join('') : '<p style="color: var(--gray);">No testimonials yet.</p>';
+        }
+
+        // ============ ANALYTICS ============
+        function loadAnalytics() {
+            const analytics = JSON.parse(localStorage.getItem('siteAnalytics') || '{"visits":[],"pages":{}}');
+            const today = new Date().toDateString();
+            const thisWeek = analytics.visits.filter(v => {
+                const d = new Date(v.date);
+                const now = new Date();
+                return (now - d) < 7 * 24 * 60 * 60 * 1000;
+            });
+
+            document.getElementById('views-today').textContent = analytics.visits.filter(v => v.date === today).length;
+            document.getElementById('views-week').textContent = thisWeek.length;
+
+            // Simple chart (bar visualization)
+            const last7Days = [];
+            for (let i = 6; i >= 0; i--) {
+                const d = new Date();
+                d.setDate(d.getDate() - i);
+                const dateStr = d.toDateString();
+                const count = analytics.visits.filter(v => v.date === dateStr).length;
+                last7Days.push({ day: d.toLocaleDateString('en', { weekday: 'short' }), count });
+            }
+
+            const maxCount = Math.max(...last7Days.map(d => d.count), 1);
+            document.getElementById('views-chart').innerHTML = last7Days.map(d => `
+                <div class="chart-bar" style="height: ${(d.count / maxCount) * 100}%;" title="${d.day}: ${d.count}">
+                    <span>${d.count}</span>
+                </div>
+            `).join('') + `<div class="chart-labels">${last7Days.map(d => `<span>${d.day}</span>`).join('')}</div>`;
+
+            // Top pages
+            const pages = analytics.pages || {};
+            const topPages = Object.entries(pages).sort((a, b) => b[1] - a[1]).slice(0, 5);
+            document.getElementById('top-pages-list').innerHTML = topPages.length ? topPages.map(([page, count]) => `
+                <div class="top-item"><span>${page}</span><strong>${count}</strong></div>
+            `).join('') : '<p style="color: var(--gray);">No data yet</p>';
+
+            // Device breakdown
+            const devices = analytics.devices || { desktop: 0, mobile: 0, tablet: 0 };
+            const total = devices.desktop + devices.mobile + devices.tablet || 1;
+            document.getElementById('device-breakdown').innerHTML = `
+                <div class="device-bar">
+                    <div class="device-segment desktop" style="width: ${(devices.desktop / total) * 100}%">💻 ${Math.round((devices.desktop / total) * 100)}%</div>
+                    <div class="device-segment mobile" style="width: ${(devices.mobile / total) * 100}%">📱 ${Math.round((devices.mobile / total) * 100)}%</div>
+                    <div class="device-segment tablet" style="width: ${(devices.tablet / total) * 100}%">📟 ${Math.round((devices.tablet / total) * 100)}%</div>
+                </div>
+            `;
+
+            // Peak hours
+            const hours = analytics.hours || {};
+            const peakHours = Object.entries(hours).sort((a, b) => b[1] - a[1]).slice(0, 3);
+            document.getElementById('peak-hours').innerHTML = peakHours.length ? peakHours.map(([hour, count]) => `
+                <div class="peak-item"><span>${hour}:00 - ${parseInt(hour) + 1}:00</span><strong>${count} visits</strong></div>
+            `).join('') : '<p style="color: var(--gray);">No data yet</p>';
+        }
+
+        // ============ THEME CUSTOMIZER ============
+        window.applyCustomTheme = function () {
+            const primary = document.getElementById('custom-primary').value;
+            const secondary = document.getElementById('custom-secondary').value;
+            const bg = document.getElementById('custom-bg').value;
+            const font = document.getElementById('custom-font').value;
+
+            document.documentElement.style.setProperty('--primary', primary);
+            document.documentElement.style.setProperty('--secondary', secondary);
+            document.documentElement.style.setProperty('--dark', bg);
+            document.documentElement.style.setProperty('--font-main', font);
+
+            document.getElementById('theme-preview').style.background = bg;
+            document.querySelector('.preview-text').style.color = primary;
+            showToast('✨ Theme applied!');
+        };
+
+        window.resetTheme = function () {
+            document.documentElement.style.setProperty('--primary', '#00f3ff');
+            document.documentElement.style.setProperty('--secondary', '#bf00ff');
+            document.documentElement.style.setProperty('--dark', '#050505');
+            localStorage.removeItem('customTheme');
+            showToast('🔄 Theme reset!');
+        };
+
+        window.saveTheme = function () {
+            const theme = {
+                primary: document.getElementById('custom-primary').value,
+                secondary: document.getElementById('custom-secondary').value,
+                bg: document.getElementById('custom-bg').value,
+                font: document.getElementById('custom-font').value,
+                cardStyle: document.getElementById('custom-card-style').value
+            };
+            localStorage.setItem('customTheme', JSON.stringify(theme));
+            showToast('💾 Theme saved!');
+        };
+
+        function loadSavedTheme() {
+            const saved = JSON.parse(localStorage.getItem('customTheme') || 'null');
+            if (saved) {
+                document.getElementById('custom-primary').value = saved.primary;
+                document.getElementById('custom-secondary').value = saved.secondary;
+                document.getElementById('custom-bg').value = saved.bg;
+            }
+        }
+
+        // ============ BOOKING SYSTEM ============
+        let bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+
+        function loadBookings(tab = 'pending') {
+            const content = document.getElementById('booking-content');
+
+            if (tab === 'pending') {
+                const pending = bookings.filter(b => b.status === 'pending');
+                content.innerHTML = pending.length ? pending.map(b => `
+                    <div class="booking-card">
+                        <div class="booking-info">
+                            <strong>${b.name}</strong> - ${b.email}
+                            <p>📅 ${b.date} at ${b.time}</p>
+                            <p style="color: var(--gray);">${b.message || 'No message'}</p>
+                        </div>
+                        <div class="booking-actions">
+                            <button class="btn btn-sm btn-primary" onclick="confirmBooking('${b.id}')">✅ Confirm</button>
+                            <button class="btn btn-sm btn-danger" onclick="cancelBooking('${b.id}')">❌ Cancel</button>
+                        </div>
+                    </div>
+                `).join('') : '<p style="color: var(--gray);">No pending bookings.</p>';
+            } else if (tab === 'confirmed') {
+                const confirmed = bookings.filter(b => b.status === 'confirmed');
+                content.innerHTML = confirmed.length ? confirmed.map(b => `
+                    <div class="booking-card confirmed">
+                        <div class="booking-info">
+                            <strong>${b.name}</strong> - ${b.email}
+                            <p>📅 ${b.date} at ${b.time}</p>
+                        </div>
+                        <span class="booking-status">✅ Confirmed</span>
+                    </div>
+                `).join('') : '<p style="color: var(--gray);">No confirmed bookings.</p>';
+            } else {
+                content.innerHTML = `
+                    <div class="booking-settings">
+                        <h4>Available Time Slots</h4>
+                        <div class="time-slots" id="time-slots">
+                            ${['09:00', '10:00', '11:00', '14:00', '15:00', '16:00'].map(t => `
+                                <label class="time-slot">
+                                    <input type="checkbox" value="${t}" checked> ${t}
+                                </label>
+                            `).join('')}
+                        </div>
+                        <button class="btn btn-primary btn-sm" onclick="saveBookingSettings()">💾 Save Settings</button>
+                    </div>
+                `;
+            }
+        }
+
+        // Booking tabs
+        document.querySelectorAll('.booking-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.booking-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                loadBookings(tab.dataset.tab);
+            });
+        });
+
+        window.confirmBooking = function (id) {
+            const b = bookings.find(x => x.id === id);
+            if (b) {
+                b.status = 'confirmed';
+                localStorage.setItem('bookings', JSON.stringify(bookings));
+                loadBookings('pending');
+                loadAdminData();
+                showToast('✅ Booking confirmed!');
+            }
+        };
+
+        window.cancelBooking = function (id) {
+            if (confirm('Cancel this booking?')) {
+                bookings = bookings.filter(x => x.id !== id);
+                localStorage.setItem('bookings', JSON.stringify(bookings));
+                loadBookings('pending');
+                loadAdminData();
+                showToast('❌ Booking cancelled');
+            }
+        };
+
+        // ============ DATA MANAGEMENT ============
+        window.addTestimonialPrompt = function () {
+            const name = prompt('Client Name:');
+            if (!name) return;
+            const role = prompt('Role/Company:');
+            const text = prompt('Testimonial text:');
+            if (text) {
+                addTestimonial(name, role || 'Client', text);
+                loadAdminData();
+                showToast('✅ Testimonial added!');
+            }
+        };
+
+        window.exportAllData = function () {
+            const data = {
+                projects: JSON.parse(localStorage.getItem('customProjects') || '[]'),
+                blogs: JSON.parse(localStorage.getItem('blogPosts') || '[]'),
+                testimonials: JSON.parse(localStorage.getItem('customTestimonials') || '[]'),
+                subscribers: JSON.parse(localStorage.getItem('newsletterSubs') || '[]'),
+                bookings: JSON.parse(localStorage.getItem('bookings') || '[]'),
+                analytics: JSON.parse(localStorage.getItem('siteAnalytics') || '{}'),
+                theme: JSON.parse(localStorage.getItem('customTheme') || 'null'),
+                exportDate: new Date().toISOString()
+            };
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'portfolio_data_backup.json';
+            a.click();
+            showToast('📤 Data exported!');
+        };
+
+        window.clearAllData = function () {
+            if (confirm('⚠️ This will delete ALL custom data. Are you sure?')) {
+                if (confirm('⚠️ FINAL WARNING: This cannot be undone!')) {
+                    localStorage.removeItem('customProjects');
+                    localStorage.removeItem('blogPosts');
+                    localStorage.removeItem('customTestimonials');
+                    localStorage.removeItem('newsletterSubs');
+                    localStorage.removeItem('bookings');
+                    localStorage.removeItem('siteAnalytics');
+                    loadAdminData();
+                    loadAnalytics();
+                    loadBookings();
+                    showToast('🗑️ All data cleared!');
+                }
+            }
+        };
+
+        window.importData = function () {
+            document.getElementById('import-file').click();
+        };
+
+        document.getElementById('import-file').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    try {
+                        const data = JSON.parse(event.target.result);
+                        if (data.projects) localStorage.setItem('customProjects', JSON.stringify(data.projects));
+                        if (data.blogs) localStorage.setItem('blogPosts', JSON.stringify(data.blogs));
+                        if (data.testimonials) localStorage.setItem('customTestimonials', JSON.stringify(data.testimonials));
+                        if (data.subscribers) localStorage.setItem('newsletterSubs', JSON.stringify(data.subscribers));
+                        if (data.bookings) localStorage.setItem('bookings', JSON.stringify(data.bookings));
+                        if (data.analytics) localStorage.setItem('siteAnalytics', JSON.stringify(data.analytics));
+                        if (data.theme) localStorage.setItem('customTheme', JSON.stringify(data.theme));
+                        loadAdminData();
+                        loadAnalytics();
+                        showToast('📥 Data imported successfully!');
+                    } catch (err) {
+                        showToast('❌ Invalid file format');
+                    }
+                };
+                reader.readAsText(file);
+            }
+        });
+    </script>
+</body>
+
+</html>

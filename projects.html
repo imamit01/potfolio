@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self';">
+    <title>Projects | Amit Kumar - Frontend Developer & ML Researcher</title>
+    <meta name="description"
+        content="Explore Amit Kumar's portfolio of web development and machine learning projects including e-commerce sites, games, and ML models.">
+    <link rel="canonical" href="https://immait.tech/projects.html">
+    <meta property="og:title" content="Projects - Amit Kumar">
+    <meta property="og:url" content="https://immait.tech/projects.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="amit-photo.png">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <!-- Shared Components -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <canvas id="starfield"></canvas>
+    <canvas id="particles"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="logo-text">AK</span><span class="logo-dot"></span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title"><span class="glitch" data-text="My Projects">My Projects</span></h1>
+            <p class="page-subtitle">Web applications, ML models, and more</p>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="projects-filter reveal">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="ml">ML</button>
+                <button class="filter-btn" data-filter="game">Games</button>
+                <button class="btn btn-outline btn-sm" id="project-admin-btn" style="margin-left: auto;">⚙️
+                    Manage</button>
+            </div>
+            <div class="projects-grid" id="projects-grid"></div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="publications" id="publications">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Research</span>
+                <h2 class="section-title">My <span class="highlight">Publications</span></h2>
+            </div>
+            <div class="publications-grid">
+                <div class="publication-card reveal">
+                    <span class="pub-type">📄 Journal</span>
+                    <h3>Hybrid ML Approach for Heart Disease Prediction</h3>
+                    <p>A comprehensive study using Random Forest, SVM, and Neural Networks for accurate heart disease
+                        prediction.</p>
+                    <div class="pub-meta">
+                        <span>Scopus Indexed</span>
+                        <span>2023</span>
+                    </div>
+                </div>
+                <div class="publication-card reveal">
+                    <span class="pub-type">📄 Conference</span>
+                    <h3>Feature Selection Techniques in Healthcare ML</h3>
+                    <p>Analysis of various feature selection methods for improving ML model accuracy in medical
+                        diagnosis.</p>
+                    <div class="pub-meta">
+                        <span>IEEE Conference</span>
+                        <span>2023</span>
+                    </div>
+                </div>
+                <div class="publication-card reveal">
+                    <span class="pub-type">📄 Journal</span>
+                    <h3>Ensemble Methods for Medical Prediction</h3>
+                    <p>Comparative study of ensemble learning techniques for healthcare prediction systems.</p>
+                    <div class="pub-meta">
+                        <span>Scopus Indexed</span>
+                        <span>2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Stats -->
+    <section class="github-stats" id="github">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Open Source</span>
+                <h2 class="section-title">GitHub <span class="highlight">Activity</span></h2>
+            </div>
+            <div class="github-grid">
+                <div class="github-card reveal">
+                    <span class="github-number" data-target="15">0</span>
+                    <span class="github-label">Repositories</span>
+                </div>
+                <div class="github-card reveal">
+                    <span class="github-number" data-target="500">0</span>
+                    <span class="github-label">Contributions</span>
+                </div>
+                <div class="github-card reveal">
+                    <span class="github-number" data-target="25">0</span>
+                    <span class="github-label">Stars Earned</span>
+                </div>
+                <div class="github-card reveal">
+                    <span class="github-number" data-target="10">0</span>
+                    <span class="github-label">Followers</span>
+                </div>
+            </div>
+            <a href="https://github.com/imamit01" target="_blank" class="btn btn-outline magnetic reveal">
+                <span>View GitHub Profile →</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Projects Admin Modal -->
+    <div class="admin-modal" id="project-admin-modal">
+        <div class="admin-modal-content">
+            <button class="blog-modal-close" id="project-admin-close">×</button>
+            <h2 class="admin-title">📦 Projects Manager</h2>
+            <div class="admin-tabs">
+                <button class="admin-tab active" data-tab="add-project">➕ Add New</button>
+                <button class="admin-tab" data-tab="manage-projects">📋 Manage</button>
+            </div>
+            <div class="admin-body" id="project-admin-body">
+                <!-- Add Project Form -->
+                <form id="add-project-form" class="admin-form">
+                    <div class="form-group">
+                        <label>Project Title *</label>
+                        <input type="text" class="form-input" id="project-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description *</label>
+                        <textarea class="form-input" id="project-desc" rows="3" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select class="form-input" id="project-category">
+                                <option value="web">🌐 Web</option>
+                                <option value="ml">🤖 ML</option>
+                                <option value="game">🎮 Game</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Tech Stack</label>
+                            <input type="text" class="form-input" id="project-tech" placeholder="HTML, CSS, JS">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Demo URL</label>
+                            <input type="url" class="form-input" id="project-demo" placeholder="https://...">
+                        </div>
+                        <div class="form-group">
+                            <label>GitHub URL</label>
+                            <input type="url" class="form-input" id="project-github"
+                                placeholder="https://github.com/...">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="url" class="form-input" id="project-image"
+                            placeholder="https://... or leave empty">
+                    </div>
+                    <div class="form-group checkbox">
+                        <label><input type="checkbox" id="project-featured"> ⭐ Featured Project</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">💾 Save Project</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">×</button>
+        <button class="lightbox-prev" id="lightbox-prev">❮</button>
+        <img src="" alt="" class="lightbox-image" id="lightbox-image">
+        <button class="lightbox-next" id="lightbox-next">❯</button>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2024 <span class="highlight">Amit Kumar</span>. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="services.html">Services</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" id="back-to-top" title="Back to Top">↑</button>
+    <a href="https://wa.me/918544860872?text=Hi%20Amit!" target="_blank" class="whatsapp-widget"><span
+            class="whatsapp-icon">💬</span></a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
